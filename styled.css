@@ -383,6 +383,12 @@ img {
   text-align: center;
   font-size: 12px;
 }
+.feedback-text {
+  text-align: center;
+  @media screen and (min-width: 768px) {
+    text-align: left;
+  }
+}
 .addresses {
   margin: auto;
   max-width: 900px;
@@ -478,4 +484,8 @@ img {
 .slick-dot:hover {
   background-color: var(--bg-buttons);
   border: 1px solid var(--bg-buttons);
+}
+.slick-track {
+  display: flex;
+  gap: 16px;
 }
