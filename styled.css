@@ -7,6 +7,11 @@
   --bg-buttons: #ebc36c;
   --border-input: #ebc36c;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   line-height: 1;
   font-family: Roboto;
@@ -14,6 +19,9 @@ body {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  &.close {
+    overflow: hidden;
+  }
 }
 
 * {
@@ -51,10 +59,14 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 15px;
+  padding-right: 15px;
   padding-bottom: 16px;
   padding-top: 16px;
+  @media screen and (min-width: 768px) {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
 }
 .logo {
   width: 50px;
@@ -65,13 +77,29 @@ img {
   background-position: center;
 }
 .nav {
+  display: none;
   ul {
     display: flex;
-    justify-content: space-between;
-    gap: 25px;
-    max-width: 500px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
     width: 100%;
-    margin: auto;
+    background: var(--bg-secondary);
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    @media screen and (min-width: 768px) {
+      position: static;
+      gap: 25px;
+      justify-content: space-between;
+      flex-direction: row;
+      max-width: 500px;
+      margin: auto;
+      background: transparent;
+    }
   }
   li {
     position: relative;
@@ -97,7 +125,48 @@ img {
     color: var(--color-hero);
     text-shadow: 2px 2px var(--color-primary);
   }
+  &.is-open {
+    display: block;
+  }
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
 }
+
+.button-menu {
+  border: none;
+  background: transparent;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 3;
+}
+.menu-svg {
+  fill: var(--bg-buttons);
+  display: block;
+  width: 40px;
+  height: 40px;
+
+  &.is-close {
+    display: none;
+  }
+  @media screen and (min-width: 769px) {
+    display: none;
+  }
+}
+
+.orders {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  position: relative;
+  padding-right: 60px;
+  @media screen and (min-width: 768px) {
+    padding-right: 0;
+  }
+}
+
 .order {
   display: block;
   text-decoration: none;
@@ -150,16 +219,14 @@ img {
 .benefits {
   padding: 40px 0;
 }
-.catalog {
-  text-align: center;
-  font-size: 24px;
-  margin-bottom: 30px;
-}
+
 .carts {
-  display: grid;
-  grid-template: 1fr 1fr / auto auto;
-  gap: 50px;
-  justify-items: center;
+  @media screen and (min-width: 769px) {
+    display: grid;
+    grid-template: 1fr 1fr / auto auto;
+    gap: 50px;
+    justify-items: center;
+  }
 }
 .img {
   align-self: center;
@@ -176,26 +243,24 @@ img {
     color: var(--color-primary);
     border-bottom: 2px var(--color-hero) solid;
     padding-bottom: 2px;
+    margin-left: auto;
     width: fit-content;
     &:hover {
       border-bottom: solid 2px var(--bg-secondary);
     }
+    @media screen and (min-width: 769px) {
+      margin-left: 0;
+    }
   }
 }
-.title-coffee {
-  padding: 8px 16px;
-  border-radius: 8px;
-  text-align: center;
-  font-size: 12px;
-}
+
 .img-coffee {
   width: 250px;
 }
 .description {
-  display: grid;
-  grid-template-columns: 80% 20%;
-  justify-items: center;
   margin-bottom: 16px;
+  display: grid;
+  gap: 16px;
   span {
     display: flex;
     align-items: center;
@@ -204,6 +269,13 @@ img {
     background: var(--bg-buttons);
     width: 50px;
     height: 50px;
+  }
+  @media screen and (min-width: 768px) {
+    grid-template-columns: 80% 20%;
+    justify-items: center;
+    text-align: left;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 .application-form {
@@ -241,6 +313,7 @@ img {
 .feedback {
   padding: 30px 0;
 }
+
 .slick-initialized .slick-slide {
   display: flex !important;
   flex-direction: column;
@@ -254,7 +327,7 @@ img {
 }
 .name-user {
   text-align: center;
-  font-size: 24px;
+  font-size: 18px;
   margin-bottom: 30px;
 }
 .img-user {
@@ -285,12 +358,45 @@ img {
   left: 0%;
   transform: translateY(-50%);
 }
-.addresses {
+.main {
+  padding: 0 15px;
+}
+.footer {
+  padding: 0 15px;
+}
+.benefits-list {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+.title-sections {
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+.title-coffee {
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 12px;
+}
+.addresses {
   margin: auto;
   max-width: 900px;
   width: 100%;
+  .contacts {
+    margin-bottom: 16px;
+    @media screen and (min-width: 768px) {
+      margin-bottom: 0px;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 .link_network {
   display: flex;

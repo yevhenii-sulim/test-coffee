@@ -32,21 +32,39 @@
           ></a>
           <nav class="nav">
             <ul>
-              <li><a href="#">Головна</a></li>
-              <li><a href="#">Переваги</a></li>
-              <li><a href="#">Каталог</a></li>
-              <li><a href="#">Відгуки</a></li>
-              <li><a href="#">Контакти</a></li>
+              <li class="list"><a href="#main">Головна</a></li>
+              <li class="list"><a href="#benefits">Переваги</a></li>
+              <li class="list"><a href="#catalog">Каталог</a></li>
+              <li class="list"><a href="#feedback">Відгуки</a></li>
+              <li class="list"><a href="#contact">Контакти</a></li>
             </ul>
           </nav>
-          <a
-            href="#"
-            class="order"
-            >Замовити</a
-          >
+          <div class="orders">
+            <a
+              href="#"
+              class="order"
+              >Замовити</a
+            >
+            <button
+              type="button"
+              class="button-menu"
+            >
+              <svg class="menu-svg close is-close">
+                <use xlink:href="images/sprite.svg#close"></use>
+              </svg>
+              <svg class="menu-svg open">
+                <use xlink:href="images/sprite.svg#burger"></use>
+              </svg>
+            </button>
+          </div>
         </div>
         <div class="hero">
-          <h1 class="title">Неперевершений аромат і смак!</h1>
+          <h1
+            class="title"
+            id="main"
+          >
+            Неперевершений аромат і смак!
+          </h1>
           <p class="sub-title">
             Обирайте ідеальну каву для вашого настрою та моменту
           </p>
@@ -60,12 +78,31 @@
       </div>
     </header>
     <main class="main">
-      <section class="benefits">
+      <section
+        class="benefits"
+        id="benefits"
+      >
         <div class="container">
-          <h2 class="catalog">Наші продукти</h2>
+          <h2 class="benefits-title title-sections">Наші перевааги</h2>
+          <ul class="benefits-list">
+            <li>Свіжозмелені зерна.</li>
+            <li>Широкий вибір сортів.</li>
+            <li>Швидка доставка.</li>
+            <li>Акційні пропозиції.</li>
+          </ul>
+        </div>
+      </section>
+      <section class="catalog">
+        <div class="container">
+          <h2
+            class="catalog title-sections"
+            id="catalog"
+          >
+            Наші продукти
+          </h2>
           <ul class="carts">
             <li class="cart">
-              <h2 class="title-coffee">espresso</h2>
+              <h3 class="title-coffee">espresso</h3>
               <div class="img">
                 <img
                   src="./images/espresso.png"
@@ -83,7 +120,7 @@
               <a href="#">Докладніше</a>
             </li>
             <li class="cart">
-              <h2 class="title-coffee">americano</h2>
+              <h3 class="title-coffee">americano</h3>
               <div class="img">
                 <img
                   src="./images/ammericano.png"
@@ -101,7 +138,7 @@
               <a href="#">Докладніше</a>
             </li>
             <li class="cart">
-              <h2 class="title-coffee">cappuccino</h2>
+              <h3 class="title-coffee">cappuccino</h3>
               <div class="img">
                 <img
                   src="./images/capuchino.png"
@@ -119,7 +156,7 @@
               <a href="#">Докладніше</a>
             </li>
             <li class="cart">
-              <h2 class="title-coffee">coffee</h2>
+              <h3 class="title-coffee">coffee</h3>
               <div class="img">
                 <img
                   src="./images/coffee.png"
@@ -141,6 +178,12 @@
       </section>
       <section class="feedback">
         <div class="container">
+          <h2
+            class="title-feedback title-sections"
+            id="feedback"
+          >
+            Відгуки
+          </h2>
           <div class="swiper">
             <div class="section-swiper">
               <h3 class="name-user">Анна, Київ</h3>
@@ -219,7 +262,10 @@
     <footer class="footer">
       <div class="container">
         <div class="addresses">
-          <div class="contacts">
+          <div
+            class="contacts"
+            id="contact"
+          >
             <a
               href="tel:+380669231638"
               class="tel"
@@ -288,7 +334,6 @@
       type="text/javascript"
       src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
     ></script>
-
     <script>
       $(document).ready(function () {
         $(".swiper").slick({
@@ -315,5 +360,6 @@
         });
       });
     </script>
+    <script src="index.js"></script>
   </body>
 </html>
