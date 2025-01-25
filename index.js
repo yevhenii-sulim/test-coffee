@@ -23,9 +23,9 @@ function toggle() {
 function closeMenu(event) {
   const target = event.target.closest(".list");
   if (target) {
-    nav.classList.toggle("is-open");
-    menuSvgClose.classList.toggle("is-close");
-    menuSvgOpen.classList.toggle("is-close");
-    body.classList.toggle("close");
+    nav.classList.remove("is-open");
+    menuSvgOpen.classList.remove("is-close");
+    menuSvgClose.classList.add("is-close");
+    body.classList.remove("close");
   }
 }
