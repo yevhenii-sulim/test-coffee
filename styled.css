@@ -191,16 +191,22 @@ img {
   font-family: "Playwrite VN", serif;
   font-optical-sizing: auto;
   font-style: italic;
-  font-size: 42px;
+  font-size: 32px;
   text-shadow: 2px 2px var(--color-primary);
+  @media screen and (min-width: 768px) {
+    font-size: 42px;
+  }
 }
 .sub-title {
   text-align: center;
   padding-top: 16px;
   padding-bottom: 16px;
   color: var(--color-hero);
-  font-size: 28px;
+  font-size: 24px;
   text-shadow: 2px 2px var(--color-primary);
+  @media screen and (min-width: 768px) {
+    font-size: 28px;
+  }
 }
 .select-coffee {
   display: block;
